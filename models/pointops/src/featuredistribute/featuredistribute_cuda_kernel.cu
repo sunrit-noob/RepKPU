@@ -101,7 +101,7 @@ __global__ void featuregather_backward_cuda_kernel(int b, int n, int m, int c, c
 }
 
 
-void featuregather_backward_cuda_launcher(int b, int n, int m, int c, const float *grad_distribute_feature, const int *distribute_idx, float *grad_max_feature, cudaStream_t stream){
+void featuregather_backward_cuda_launcher(int b, int n, int m, int c, const float *grad_distribute_feature, const int *distribute_idx, float *grad_max_feature){
     // param grad_distribute_feature: (b, c, m)
     // param distribute_idx: (b, m)
     // return grad_max_feature: (b, c, n)
