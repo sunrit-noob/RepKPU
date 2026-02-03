@@ -90,7 +90,7 @@ void ballquery_cuda_launcher_fast(int b, int n, int m, float radius, int nsample
     dim3 blocks(DIVUP(m, THREADS_PER_BLOCK), b);  // blockIdx.x(col), blockIdx.y(row)
     dim3 threads(THREADS_PER_BLOCK);
 
-    ballquery_cuda_kernel_fast<<<blocks, threads, 0, stream>>>(b, n, m, radius, nsample, new_xyz, xyz, idx);
+    ballquery_cuda_kernel_fast<<<blocks, threads, 0>>>(b, n, m, radius, nsample, new_xyz, xyz, idx);
     // cudaDeviceSynchronize();  // for using printf in kernel function
 
     err = cudaGetLastError();

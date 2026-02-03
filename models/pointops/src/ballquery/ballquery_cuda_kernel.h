@@ -14,7 +14,7 @@ extern "C" {
 
 void ballquery_cuda_launcher(int b, int n, int m, float radius, int nsample, const float *xyz, const float *new_xyz, int *idx);
 
-void ballquery_cuda_launcher_fast(int b, int n, int m, float radius, int nsample, const float *new_xyz, const float *xyz, int *idx, cudaStream_t stream);
+void ballquery_cuda_launcher_fast(int b, int n, int m, float radius, int nsample, const float *new_xyz, const float *xyz, int *idx);
 
 #ifdef __cplusplus
 }
