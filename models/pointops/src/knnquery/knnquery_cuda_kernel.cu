@@ -61,7 +61,7 @@ void knnquery_cuda_launcher(int b, int n, int m, int nsample, const float *xyz, 
     dim3 threads(THREADS_PER_BLOCK);
     
     // fprintf('%d, %d', blocks, threads);
-    knnquery_cuda_kernel<<<blocks, threads, 0, stream>>>(b, n, m, nsample, xyz, new_xyz, idx, dist2);
+    knnquery_cuda_kernel<<<blocks, threads, 0>>>(b, n, m, nsample, xyz, new_xyz, idx, dist2);
     // cudaDeviceSynchronize();  // for using printf in kernel function
 
     // err = cudaGetLastError();

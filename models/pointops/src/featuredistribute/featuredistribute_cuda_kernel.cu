@@ -75,7 +75,7 @@ void featuregather_forward_cuda_launcher(int b, int n, int m, int c, const float
     dim3 blocks(DIVUP(m, THREADS_PER_BLOCK), c, b);  // blockIdx.x(col), blockIdx.y(row)
     dim3 threads(THREADS_PER_BLOCK);
 
-    featuregather_forward_cuda_kernel<<<blocks, threads, 0, stream>>>(b, n, m, c, max_feature, distribute_idx, distribute_feature);
+    featuregather_forward_cuda_kernel<<<blocks, threads, 0>>>(b, n, m, c, max_feature, distribute_idx, distribute_feature);
     // cudaDeviceSynchronize();  // for using printf in kernel function
 
     err = cudaGetLastError();
@@ -111,7 +111,7 @@ void featuregather_backward_cuda_launcher(int b, int n, int m, int c, const floa
     dim3 blocks(DIVUP(m, THREADS_PER_BLOCK), c, b);  // blockIdx.x(col), blockIdx.y(row)
     dim3 threads(THREADS_PER_BLOCK);
 
-    featuregather_backward_cuda_kernel<<<blocks, threads, 0, stream>>>(b, n, m, c, grad_distribute_feature, distribute_idx, grad_max_feature);
+    featuregather_backward_cuda_kernel<<<blocks, threads, 0>>>(b, n, m, c, grad_distribute_feature, distribute_idx, grad_max_feature);
     // cudaDeviceSynchronize();  // for using printf in kernel function
 
     err = cudaGetLastError();

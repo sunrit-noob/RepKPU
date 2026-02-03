@@ -18,13 +18,13 @@ extern "C" {
 #endif
 
 void labelstat_and_ballquery_cuda_launcher_fast(int b, int n, int m, float radius, int nsample, int nclass, \
-    const float *new_xyz, const float *xyz, const int *label_stat, int *idx, int *new_label_stat, cudaStream_t stream);
+    const float *new_xyz, const float *xyz, const int *label_stat, int *idx, int *new_label_stat);
 
 void labelstat_ballrange_cuda_launcher_fast(int b, int n, int m, float radius, int nclass, \
-    const float *new_xyz, const float *xyz, const int *label_stat, int *new_label_stat, cudaStream_t stream);
+    const float *new_xyz, const float *xyz, const int *label_stat, int *new_label_stat);
 
 void labelstat_idx_cuda_launcher_fast(int b, int n, int m, int nsample, int nclass, \
-    const int *label_stat, const int *idx, int *new_label_stat, cudaStream_t stream);
+    const int *label_stat, const int *idx, int *new_label_stat);
 
 #ifdef __cplusplus
 }

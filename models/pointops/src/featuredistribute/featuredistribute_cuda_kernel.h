@@ -12,9 +12,9 @@ void featuregather_backward_cuda(int b, int n, int m, int c, at::Tensor grad_dis
 extern "C" {
 #endif
 
-void featuredistribute_cuda_launcher(int b, int n, int m, const float *max_xyz, const float *xyz, int *distribute_idx, cudaStream_t stream);
-void featuregather_forward_cuda_launcher(int b, int n, int m, int c, const float *max_feature, const int *distribute_idx, float *distribute_feature, cudaStream_t stream);
-void featuregather_backward_cuda_launcher(int b, int n, int m, int c, const float *grad_distribute_feature, const int *distribute_idx, float *grad_max_feature, cudaStream_t stream);
+void featuredistribute_cuda_launcher(int b, int n, int m, const float *max_xyz, const float *xyz, int *distribute_idx);
+void featuregather_forward_cuda_launcher(int b, int n, int m, int c, const float *max_feature, const int *distribute_idx, float *distribute_feature);
+void featuregather_backward_cuda_launcher(int b, int n, int m, int c, const float *grad_distribute_feature, const int *distribute_idx, float *grad_max_feature);
 
 #ifdef __cplusplus
 }

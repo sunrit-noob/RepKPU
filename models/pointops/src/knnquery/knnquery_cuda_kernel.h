@@ -11,7 +11,7 @@ void knnquery_cuda(int b, int n, int m, int nsample, at::Tensor xyz_tensor, at::
 extern "C" {
 #endif
 
-void knnquery_cuda_launcher(int b, int n, int m, int nsample, const float *xyz, const float *new_xyz, int *idx, float *dist2, cudaStream_t stream);
+void knnquery_cuda_launcher(int b, int n, int m, int nsample, const float *xyz, const float *new_xyz, int *idx, float *dist2);
 
 #ifdef __cplusplus
 }
