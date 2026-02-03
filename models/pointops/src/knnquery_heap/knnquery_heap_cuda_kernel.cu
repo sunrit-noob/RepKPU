@@ -89,7 +89,7 @@ __global__ void knnquery_heap_cuda_kernel(int b, int n, int m, int nsample, cons
 }
 
 
-void knnquery_heap_cuda_launcher(int b, int n, int m, int nsample, const float *xyz, const float *new_xyz, int *idx, float *dist2, cudaStream_t stream) {
+void knnquery_heap_cuda_launcher(int b, int n, int m, int nsample, const float *xyz, const float *new_xyz, int *idx, float *dist2) {
     // param new_xyz: (B, m, 3)
     // param xyz: (B, n, 3)
     // param idx: (B, m, nsample)

@@ -80,7 +80,7 @@ __global__ void ballquery_cuda_kernel_fast(int b, int n, int m, float radius, in
 }
 
 
-void ballquery_cuda_launcher_fast(int b, int n, int m, float radius, int nsample, const float *new_xyz, const float *xyz, int *idx, cudaStream_t stream) {
+void ballquery_cuda_launcher_fast(int b, int n, int m, float radius, int nsample, const float *new_xyz, const float *xyz, int *idx) {
     // param new_xyz: (B, m, 3)
     // param xyz: (B, n, 3)
     // param idx: (B, m, nsample)

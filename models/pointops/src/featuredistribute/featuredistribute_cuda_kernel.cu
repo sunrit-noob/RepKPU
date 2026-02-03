@@ -30,7 +30,7 @@ __global__ void featuredistribute_cuda_kernel(int b, int n, int m, const float *
 }
 
 
-void featuredistribute_cuda_launcher(int b, int n, int m, const float *max_xyz, const float *xyz, int *distribute_idx, cudaStream_t stream) {
+void featuredistribute_cuda_launcher(int b, int n, int m, const float *max_xyz, const float *xyz, int *distribute_idx) {
     // param max_xyz: (b, n, 3)
     // param xyz: (b, m, 3)
     // return distribute_idx: (b, m)
@@ -65,7 +65,7 @@ __global__ void featuregather_forward_cuda_kernel(int b, int n, int m, int c, co
 }
 
 
-void featuregather_forward_cuda_launcher(int b, int n, int m, int c, const float *max_feature, const int *distribute_idx, float *distribute_feature, cudaStream_t stream){
+void featuregather_forward_cuda_launcher(int b, int n, int m, int c, const float *max_feature, const int *distribute_idx, float *distribute_feature){
     // param max_feature: (b, c, n)
     // param distribute_idx: (b, m)
     // return distribute_feature: (b, c, m)

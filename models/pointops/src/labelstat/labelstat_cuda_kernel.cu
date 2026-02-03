@@ -49,7 +49,7 @@ __global__ void labelstat_and_ballquery_cuda_kernel_fast(int b, int n, int m, fl
 }
 
 void labelstat_and_ballquery_cuda_launcher_fast(int b, int n, int m, float radius, int nsample, int nclass,
-    const float *new_xyz, const float *xyz, const int *label_stat, int *idx, int *new_label_stat, cudaStream_t stream) {
+    const float *new_xyz, const float *xyz, const int *label_stat, int *idx, int *new_label_stat) {
     // param new_xyz: (B, m, 3)
     // param xyz: (B, n, 3)
     // param idx: (B, m, nsample)
@@ -106,7 +106,7 @@ __global__ void labelstat_ballrange_cuda_kernel_fast(int b, int n, int m, float 
 
 
 void labelstat_ballrange_cuda_launcher_fast(int b, int n, int m, float radius, int nclass,
-    const float *new_xyz, const float *xyz, const int *label_stat, int *new_label_stat, cudaStream_t stream) {
+    const float *new_xyz, const float *xyz, const int *label_stat, int *new_label_stat) {
     // param new_xyz: (B, m, 3)
     // param xyz: (B, n, 3)
     // param idx: (B, m, nsample)
@@ -152,7 +152,7 @@ __global__ void labelstat_idx_cuda_kernel_fast(int b, int n, int m, int nsample,
 
 
 void labelstat_idx_cuda_launcher_fast(int b, int n, int m, int nsample, int nclass,
-    const int *label_stat, const int *idx, int *new_label_stat, cudaStream_t stream) {
+    const int *label_stat, const int *idx, int *new_label_stat) {
     // param new_xyz: (B, m, 3)
     // param xyz: (B, n, 3)
     // param idx: (B, m, nsample)
