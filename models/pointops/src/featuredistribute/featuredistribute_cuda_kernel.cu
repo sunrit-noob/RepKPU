@@ -40,7 +40,7 @@ void featuredistribute_cuda_launcher(int b, int n, int m, const float *max_xyz, 
     dim3 blocks(DIVUP(m, THREADS_PER_BLOCK), b);  // blockIdx.x(col), blockIdx.y(row)
     dim3 threads(THREADS_PER_BLOCK);
 
-    featuredistribute_cuda_kernel<<<blocks, threads, 0, stream>>>(b, n, m, max_xyz, xyz, distribute_idx);
+    featuredistribute_cuda_kernel<<<blocks, threads, 0>>>(b, n, m, max_xyz, xyz, distribute_idx);
     // cudaDeviceSynchronize();  // for using printf in kernel function
 
     err = cudaGetLastError();
